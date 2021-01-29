@@ -1,13 +1,17 @@
 import random
 
 class Players:
-    def __init__(self, number_of_human_players):
-        self.number_of_human_players = number_of_human_players
+    def __init__(self, human, choice):
+        self.human = human
+        self.choice = choice
 
-    def computer_choice(self):
+
+    def get_computer_choice(self):
         choice = ["rock", "paper", "scissors"]
-        print(choice[random.randrange(0,2)])
+        return choice[random.randrange(0,2)]
 
+    def get_player_choice(self, choice):
+        return choice
 
  
 

@@ -10,13 +10,9 @@ def start_game():
         number_of_players = int(input("Enter a number of players between 0 and 2: "))
 
 
-    outcomes = [
-        {"name": "rock", "beats": "scissors", "loses": "paper"}, 
-        {"name": "paper", "beats": "rock", "loses": "scissors"},
-        {"name": "scissors", "beats": "paper", "loses": "rock"}
-    ]
+    
 
-    number_of_games = int(input("Enter number of games: "))
+   
 
     for _ in range(number_of_games):
         if number_of_players == 0:
