@@ -1,0 +1,2 @@
+FLASK_APP=flask_homework.py
+FLASK_ENV=development
