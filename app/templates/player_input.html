@@ -10,6 +10,39 @@
         <h1>Player Input</h1>
     </header>
     <main>
-        <p>Number of players = {{players}}</p>
+        <p>Number of players = {{players.human_players}}</p>
+
+        <main>
+            <form action="/player-input" method="POST">
+                {%if players.human_players=="1" %}
+                    
+                        <label for="player_one">Player one weapon</label>
+                        <input type="text" name="player_one" id="player_one">
+                        
+                        <input type="text" name="player_two" id="player_two">
+                        
+                        <p><input type="submit" value="Submit"></p>
+                    </form>
+
+                {%elif players.human_players=="2"%}
+                <form action="/" method="POST">
+                    <p>
+                        <label for="player_one">Player one weapon</label>
+                        <input type="text" name="player_one" id="player_one">
+                    </p>
+                    <p>                
+                        <label for="player_two">Player two weapon</label>
+                        <input type="text" name="player_two" id="player_two">
+                    </p>
+                    
+                <p><input type="submit" value="Submit"></p>
+                
+                {%else%}
+
+                <p><input type="submit" value="Submit"></p>
+            
+                {%endif%}
+            </form>                
+        </main>
     </main>
 </html>
