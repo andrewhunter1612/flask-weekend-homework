@@ -8,5 +8,10 @@
 <body>
     <header><h1>{{title}}</h1></header>
     <p>Winner is {{game.winner}}</p>
+    <header><h3>Results History</h3></header>
+    {%for game in game.history%}
+        <p>Player 1: {{game['player_1']}}, Player 2: {{game['player_2']}}, Winner: {{game['winner']}}</p>
+
+    {%endfor%}
 </body>
 </html>

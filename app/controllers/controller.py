@@ -4,11 +4,6 @@ from app.models.player import *
 from app.models.game import Game
 from app.models.set_up_game import game, player_one, player_two
 
-def set_up():
-    game = Game()
-    player_one = Player()
-    player_two = Player()
-
 @app.route('/')
 def home_screen():
     return render_template("home_page.html")
@@ -17,6 +12,7 @@ def home_screen():
 def choose_number_of_players():
     game.set_human_players(request.form['number_of_players'])
     number_of_players = game.get_human_players()
+    print(number_of_players)
     if number_of_players == "1":
         player_one.human = True
     elif number_of_players == "2":
@@ -27,8 +23,18 @@ def choose_number_of_players():
 
 @app.route('/player-input', methods=["POST"])
 def set_player_input():
-    player_one.set_player_choice(player_one.human, request.form['player_one'])
-    player_two.set_player_choice(player_two.human, request.form['player_two'])
+    if game.human_players == "2":
+        player_one.set_player_choice(player_one.human, request.form['player_one'])
+        player_two.set_player_choice(player_two.human, request.form['player_two'])
+
+    elif game.human_players =="1":
+        player_one.set_player_choice(player_one.human, request.form['player_one'])
+        player_two.set_player_choice(player_two.human, "")
+
+    else:
+        player_one.set_player_choice(player_one.human, "")
+        player_two.set_player_choice(player_two.human, "")
+
     game.start_game(player_one, player_two)
 
     return redirect("/results")

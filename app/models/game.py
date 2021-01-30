@@ -6,6 +6,9 @@ class Game:
         self.number_of_games = 1
         self.human_players = 0
         self.winner = ""
+        self.history = []
+        self.player_one_weapon = ""
+        self.player_two_weapon = ""
 
     def set_number_of_games(self, number_of_games):
         self.number_of_games = number_of_games
@@ -24,48 +27,32 @@ class Game:
         ]
         return outcomes
 
+    def set_player_weapons(self, player_one, player_two):
+        self.player_one_weapon = player_one.choice 
+        self.player_two_weapon = player_two.choice
     
 
     def start_game(self, player_one, player_two):
         outcomes = self.get_possible_outcomes()
     
-        player_one_weapon = player_one.choice 
-        player_two_weapon = player_two.choice
+        self.set_player_weapons(player_one, player_two)
         
         for outcome in outcomes:
-            if outcome["name"] == player_one_weapon:
-                if player_two_weapon == outcome["beats"]:
+            if outcome["name"] == self.player_one_weapon:
+                if self.player_two_weapon == outcome["beats"]:
                     self.winner = "Player 1"
-                    # player_one_wins += 1
-                elif player_two_weapon == outcome["loses"]:
+                    self.player_one_wins +=1
+
+                elif self.player_two_weapon == outcome["loses"]:
                     self.winner = "Player 2"
-                    # player_two_wins += 1
-                elif player_two_weapon == outcome["name"]:
+                    self.player_two_wins +=1
+
+                elif self.player_two_weapon == outcome["name"]:
                     self.winner = "Draw"
+                    self.draws +=1
 
-        # for _ in range(self.number_of_games):
-        #     if number_of_players == 0:
-        #         player_one = player_one.get_computer_choice()
-        #         player_two = player_two.get_computer_choice()
-        #     elif number_of_players ==1:
-        #         player_one = player_one.get_computer_choice()
-        #         player_two = return_random_decision(random.randrange(0,2))
-        #     elif number_of_players ==2:
-        #         player_one = input("Player 1: enter rock, paper or scissors: ")
-        #         player_two = input("Player 2: enter rock, paper or scissors: ")
-        #     else:
-        #         number_of_players = input("Enter the number of players: ")
+        self.history.append({"player_1": self.player_one_weapon, "player_2": self.player_two_weapon, "winner": self.winner})
 
-            # for outcome in outcomes:
-            #     if outcome["name"] == player_one:
-            #         if player_two == outcome["beats"]:
-            #             player_one_wins += 1
-            #             print("player one wins")
-            #         elif player_two == outcome["loses"]:
-            #             player_two_wins += 1
-            #             print("player two wins")
-            #         elif player_two == outcome["name"]:
-            #             draws += 1
         
 
 
