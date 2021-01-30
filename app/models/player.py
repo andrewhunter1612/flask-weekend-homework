@@ -1,9 +1,9 @@
 import random
 
 class Player:
-    def __init__(self, choice="", human = False):
-        self.human = human
-        self.choice = choice
+    def __init__(self):
+        self.human = False
+        self.choice = ""
 
 
     def set_player_choice(self, human, choice):

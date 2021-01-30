@@ -17,26 +17,25 @@ def home_screen():
 def choose_number_of_players():
     game.set_human_players(request.form['number_of_players'])
     number_of_players = game.get_human_players()
-    for _ in range(3):
-        if number_of_players == 1:
-            player_one = Player(True, "")
-        elif number_of_players == 2:
-            player_one = Player(True, "")
-            player_two = Player(True, "")
+    if number_of_players == "1":
+        player_one.human = True
+    elif number_of_players == "2":
+        player_one.human = True
+        player_two.human = True
 
     return redirect('/input')
 
 @app.route('/player-input', methods=["POST"])
 def set_player_input():
-    player_one.set_player_choice(request.form['player_one'])
-    player_two.set_player_choice(request.form['player_two'])
-    
+    player_one.set_player_choice(player_one.human, request.form['player_one'])
+    player_two.set_player_choice(player_two.human, request.form['player_two'])
+    game.start_game(player_one, player_two)
 
-    return redirect("/")
+    return redirect("/results")
 
 @app.route('/results')
 def results_screen():
-    pass
+    return render_template("results.html", title="Results", game=game)
 
 @app.route('/input')
 def input_screen():
