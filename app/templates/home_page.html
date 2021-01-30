@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header id="header">
+        <h1>Rock Paper Scissors</h1>
+        <nav id="nav-bar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="player-input">Player Input</a></li>
+                <li><a href="/results">Results</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <header>
             <form action="/" method="POST">

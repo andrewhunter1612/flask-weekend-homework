@@ -6,7 +6,16 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <header><h1>{{title}}</h1></header>
+    <header>
+        <h1>{{title}}</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="player-input">Player Input</a></li>
+                <li><a href="/results">Results</a></li>
+            </ul>
+        </nav>
+    </header>
     <p>Winner is {{game.winner}}</p>
     <header><h3>Results History</h3></header>
     {%for game in game.history%}

@@ -1,0 +1,25 @@
+body{
+    background-color: bisque;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#header > nav > ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    text-decoration: none;
+}
+
+#header > nav > ul > li{
+    margin: 20px;
+}
+
+#header > nav > ul > li > a{
+    text-decoration: none;
+    color: purple;
+}
