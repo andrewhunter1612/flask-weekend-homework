@@ -23,3 +23,9 @@ body{
     text-decoration: none;
     color: purple;
 }
+
+#number_of_players {
+    margin: 0px 10px;
+    width: 60px;
+
+}
