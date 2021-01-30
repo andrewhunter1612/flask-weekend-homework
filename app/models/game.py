@@ -4,9 +4,16 @@ class Game:
         self.player_two_wins = 0
         self.draws = 0
         self.number_of_games = 1
+        self.human_players = 0
 
     def set_number_of_games(self, number_of_games):
         self.number_of_games = number_of_games
+
+    def set_human_players(self, number_of_players):
+        self.human_players = number_of_players
+
+    def get_human_players(self):
+        return self.human_players
 
     def get_possible_outcomes(self):
         outcomes = [
